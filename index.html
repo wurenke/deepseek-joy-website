@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Joy Massage | Foot & Body Therapy</title>
+    <!-- Google Fonts: Cormorant Garamond + Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-charcoal: #121212;
+            --deep-charcoal-bg: #1A1A1A;
+            --soft-gold: #C5A059;
+            --jade-green: #2D5A27;
+            --off-white: #E8E6E1;
+            --card-bg: #1F1F1F;
+            --overlay-dark: rgba(0, 0, 0, 0.65);
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            background-color: var(--deep-charcoal-bg);
+            color: var(--off-white);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--soft-gold);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: var(--soft-gold);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation with left-aligned brand */
+        .navbar {
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+        .brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--soft-gold);
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .brand:hover {
+            opacity: 0.85;
+            color: var(--soft-gold);
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--off-white);
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: var(--soft-gold);
+        }
+        .btn-book-nav {
+            background: var(--soft-gold);
+            color: #121212 !important;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+        .btn-book-nav:hover {
+            background: #D4AF6E;
+            color: #0A0A0A !important;
+        }
+
+        /* Hero Section with Background Image */
+        .hero {
+            position: relative;
+            background-image: url('https://i.postimg.cc/XXMc2XvN/website-background-picture.webp');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+            padding: 8rem 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        /* Dark overlay for text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 5rem;
+            color: var(--soft-gold);
+            line-height: 1.15;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.7);
+        }
+        .hero .subhead {
+            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--off-white);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        .hero-tagline {
+            font-size: 1.15rem;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+        }
+
+        /* Sections styling */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .section-dark {
+            background-color: var(--deep-charcoal-bg);
+        }
+        .section-deeper {
+            background-color: #0F0F0F;
+        }
+
+        /* Stats Cards */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 28px;
+            text-align: center;
+            border: 1px solid var(--jade-green);
+            min-width: 140px;
+            transition: transform 0.2s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--soft-gold);
+        }
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--soft-gold);
+        }
+
+        /* Benefits Cards */
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .benefit-card {
+            flex: 1;
+            min-width: 260px;
+            background: var(--card-bg);
+            padding: 2rem 1.8rem;
+            border-radius: 32px;
+            border: 1px solid #2A2A2A;
+            transition: all 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: var(--jade-green);
+        }
+        .benefit-icon {
+            font-size: 2.8rem;
+            color: var(--soft-gold);
+            margin-bottom: 1rem;
+        }
+        .benefit-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Price Tables */
+        .price-section {
+            background: #151515;
+            border-radius: 36px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        .price-category {
+            margin-bottom: 2.5rem;
+        }
+        .price-category h3 {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            table-layout: fixed;
+        }
+        .price-table th,
+        .price-table td {
+            padding: 12px 8px 12px 0;
+            border-bottom: 1px solid #2E2E2E;
+            vertical-align: middle;
+        }
+        .price-table th:first-child,
+        .price-table td:first-child {
+            text-align: left;
+            width: auto;
+        }
+        .price-table th:nth-child(2),
+        .price-table td:nth-child(2),
+        .price-table th:nth-child(3),
+        .price-table td:nth-child(3) {
+            text-align: right;
+            width: 110px;
+            white-space: nowrap;
+        }
+        .price-table th {
+            font-weight: 700;
+            color: var(--soft-gold);
+            font-size: 0.95rem;
+        }
+        .price-table td:nth-child(2),
+        .price-table td:nth-child(3) {
+            font-weight: 600;
+            font-family: monospace;
+            letter-spacing: 0.3px;
+            color: #F0E5D2;
+        }
+        .price-note {
+            font-size: 0.85rem;
+            color: #AFA996;
+            border-left: 2px solid var(--jade-green);
+            padding-left: 12px;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-info {
+            flex: 1;
+            background: #171717;
+            padding: 2rem;
+            border-radius: 32px;
+            border: 1px solid rgba(45, 90, 39, 0.6);
+        }
+        .contact-info p {
+            margin: 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .contact-info i {
+            width: 32px;
+            color: var(--soft-gold);
+            font-size: 1.4rem;
+        }
+        .map-container {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            border: 1px solid var(--jade-green);
+            height: 280px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .hours-badge {
+            background: rgba(45, 90, 39, 0.2);
+            padding: 0.7rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            border: 1px solid var(--jade-green);
+        }
+        .btn-outline-jade {
+            background: none;
+            border: 1px solid var(--soft-gold);
+            color: var(--soft-gold);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .btn-outline-jade:hover {
+            background: var(--soft-gold);
+            color: #121212;
+        }
+
+        /* Floating CTA */
+        .floating-call {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--jade-green);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            border: 1px solid rgba(197, 160, 89, 0.5);
+            text-decoration: none;
+            z-index: 99;
+            transition: all 0.2s;
+        }
+        .floating-call:hover {
+            background: var(--soft-gold);
+            color: #0A0A0A;
+            transform: scale(1.02);
+        }
+
+        footer {
+            background: #0B0B0B;
+            text-align: center;
+            padding: 2rem;
+            color: #A29E93;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+        }
+        .gold-text {
+            color: var(--soft-gold);
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 3.2rem; }
+            .hero { padding: 5rem 0; }
+            .price-table th:nth-child(2), 
+            .price-table td:nth-child(2),
+            .price-table th:nth-child(3),
+            .price-table td:nth-child(3) {
+                width: 70px;
+            }
+            .container { padding: 0 20px; }
+            h2 { font-size: 2rem; }
+            .nav-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .brand {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#home" class="brand">Joy Massage Foot & Body</a>
+        <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="sms:6782006303" class="nav-link btn-book-nav"><i class="fas fa-calendar-alt"></i> Book Now</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero section with your image as the first page picture -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="subhead">✦ Welcome to ✦</div>
+        <h1>Joy Massage<br>Foot & Body</h1>
+        <div class="hero-tagline">Relax. Restore. Renew. — Luxury in every touch</div>
+        <div style="margin-top: 2rem;"><i class="fas fa-chevron-down"></i> Discover tranquility</div>
+    </div>
+</section>
+
+<section class="section-dark">
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-text">
+            <p>For over 10 years, we have been dedicated to helping our clients relax, recharge, and feel their best. Our professional team specializes in body massage and foot massage services designed to relieve stress, reduce tension, and improve overall wellness. We focus on providing a clean, comfortable, and peaceful environment where every client is treated with care and respect. Many of our customers have trusted us for years because of our consistent quality, friendly service, and attention to their individual needs.</p>
+            <p>At Joy Massage, your comfort and satisfaction are our top priorities. Whether you visit us for relaxation after a long day or to ease muscle fatigue and stress, we are committed to giving you a calming and refreshing experience every time. Our experienced therapists use gentle techniques and personalized care to help you leave feeling relaxed, refreshed, and renewed. We truly value the trust our clients place in us, and we look forward to welcoming both new and returning customers for many more years to come.</p>
+        </div>
+        <div class="stats-row">
+            <div class="stat-card"><span class="stat-number">10+</span><br>Years of Serenity</div>
+            <div class="stat-card"><span class="stat-number">100%</span><br>Devoted Care</div>
+            <div class="stat-card"><span class="stat-number">✦</span><br>Jade Standard</div>
+        </div>
+    </div>
+</section>
+
+<section class="section-deeper" id="services">
+    <div class="container">
+        <h2>The Power of Massage</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-feather-alt"></i></div>
+                <h3>Swedish Massage</h3>
+                <p>A Swedish massage is one of the most effective ways to melt away physical tension and quiet a busy mind. Using long, gliding strokes and kneading, it stimulates blood flow, lowers cortisol, and shifts your nervous system into a deep 'rest and digest' state. Leaving you with improved flexibility and profound calm.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-mountain"></i></div>
+                <h3>Deep Tissue</h3>
+                <p>Targets chronic tension in deep muscle layers and fascia. Slow, deliberate pressure breaks down adhesions, improves range of motion, and reduces inflammation. Ideal for chronic aches, sports recovery, or postural strain. Therapeutic transformation for lasting relief.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-feet"></i></div>
+                <h3>Foot Massage</h3>
+                <p>More than soothing tired arches — it acts as a reset button for the nervous system. Thousands of nerve endings and reflexology points help increase circulation, reduce swelling, and ease full-body tension. Perfect for deep, restorative sleep.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section-dark">
+    <div class="container">
+        <h2>Services & Pricing</h2>
+        <div class="price-section">
+            <div class="price-category">
+                <h3>Body & Couple Massage</h3>
+                <p><i class="fas fa-gem" style="color:#C5A059;"></i> <em class="gold-text">5-10 min Hot Stone included complimentary</em></p>
+                <table class="price-table">
+                    <thead>
+                        <tr><th>Service</th><th>Card</th><th>Cash</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>30 Min Back Massage</td><td>$63</td><td>$60</td></tr>
+                        <tr><td>1 Hr Swedish/Deep Tissue</td><td>$83</td><td>$80</td></tr>
+                        <tr><td>90 Min Swedish/Deep Tissue</td><td>$125</td><td>$120</td></tr>
+                        <tr><td>2 Hr Swedish/Deep Tissue</td><td>$165</td><td>$160</td></tr>
+                        <tr><td>1 Hr Couple Massage</td><td>$165</td><td>$160</td></tr>
+                        <tr><td>90 Min Couple Massage</td><td>$245</td><td>$240</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="price-category">
+                <h3>Foot & Special Massage</h3>
+                <table class="price-table">
+                    <thead><tr><th>Service</th><th>Card</th><th>Cash</th></tr></thead>
+                    <tbody>
+                        <tr><td>30 Min Foot</td><td>$42</td><td>$40</td></tr>
+                        <tr><td>50 Min Foot</td><td>$63</td><td>$60</td></tr>
+                        <tr><td>80 Min Foot</td><td>$93</td><td>$90</td></tr>
+                        <tr><td>60 Min Special Foot*</td><td>$73</td><td>$70</td></tr>
+                    </tbody>
+                </table>
+                <div class="price-note">*Special Foot: 10m head/arms, 35m feet, 15m neck/back/shoulders.</div>
+            </div>
+
+            <div class="price-category">
+                <h3>Combo Massages</h3>
+                <table class="price-table">
+                    <thead><tr><th>Service</th><th>Card</th><th>Cash</th></tr></thead>
+                    <tbody>
+                        <tr><td>30m Foot + 30m Back/Chair</td><td>$83</td><td>$80</td></tr>
+                        <tr><td>1 Hr Body + 30m Foot</td><td>$125</td><td>$120</td></tr>
+                        <tr><td>50m Foot + 30m Back</td><td>$115</td><td>$110</td></tr>
+                        <tr><td>1 Hr Special Foot + 30m Chair</td><td>$125</td><td>$120</td></tr>
+                        <tr><td>1 Hr Special Foot + 20m Chair</td><td>$115</td><td>$110</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="price-category">
+                <h3>Chair Massage</h3>
+                <table class="price-table">
+                    <thead><tr><th>Service</th><th>Card</th><th>Cash</th></tr></thead>
+                    <tbody>
+                        <tr><td>20 Min</td><td>$42</td><td>$40</td></tr>
+                        <tr><td>30 Min</td><td>$53</td><td>$50</td></tr>
+                        <tr><td>45 Min</td><td>$63</td><td>$60</td></tr>
+                        <tr><td>60 Min</td><td>$83</td><td>$80</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="price-note"><i class="fas fa-leaf"></i> Extra hot stone or prenatal massage: +$10 (prenatal only 21+ weeks without complications).</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section-deeper">
+    <div class="container">
+        <h2>Visit Us</h2>
+        <div class="contact-flex">
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address</strong><br>1690 Highway 34 E Ste. B, Newnan, GA 30265</p>
+                <p><i class="fas fa-phone-alt"></i> <strong>Business Phone</strong><br><a href="tel:6786736868" style="color:#E2DDD4;">678-673-6868</a></p>
+                <p><i class="fas fa-mobile-alt"></i> <strong>Cell / SMS</strong><br><a href="sms:6782006303" style="color:#E2DDD4;">678-200-6303</a></p>
+                <p><i class="far fa-clock"></i> <strong>Hours of Harmony</strong><br>Mon–Sat: 10:00 AM – 9:00 PM<br>Sun: 11:00 AM – 9:00 PM</p>
+                <div class="hours-badge"><i class="fas fa-spa"></i> Walk-ins welcome · Appointments honored</div>
+                <div style="margin-top: 1.5rem; display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="tel:6786736868" class="btn-outline-jade"><i class="fas fa-phone"></i> Call Now</a>
+                    <a href="sms:6782006303" class="btn-outline-jade"><i class="fas fa-comment-dots"></i> Text Us</a>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.8241894587945!2d-84.72833562404135!3d33.40175067340886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f4c68edeb7986f%3A0x2c0853b6bf118436!2s1690%20GA-34%2C%20Newnan%2C%20GA%2030265!5e0!3m2!1sen!2sus!4v1779430286947!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section style="background: #111111; text-align: center; padding: 3rem 20px;">
+    <div class="container">
+        <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">Call us to reserve your serenity.</p>
+        <a href="tel:6786736868" style="background: var(--jade-green); color: white; padding: 14px 36px; border-radius: 60px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--soft-gold); text-decoration: none;"><i class="fas fa-phone-alt"></i> Call (678) 673-6868</a>
+        <div style="margin-top: 1rem;"><a href="sms:6782006303" style="color: var(--soft-gold); text-decoration: underline;">or text us to schedule your escape</a></div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 Joy Massage Foot and Body — Newnan, GA</p>
+    <p style="margin-top: 8px;"><i class="fas fa-feather-alt"></i> Relax. Restore. Renew. <i class="fas fa-feather-alt"></i></p>
+</footer>
+
+<a href="tel:6786736868" class="floating-call">
+    <i class="fas fa-phone-alt"></i> Call Now
+</a>
+
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== "#") {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
